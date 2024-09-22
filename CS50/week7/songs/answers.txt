@@ -1,0 +1,5 @@
+To characterize the audio aura of the listener based on the top 100 songs from 2018 stored in the songs.db, I would focus on analyzing different attributes that represent the essence of the listener’s musical taste. Here's how I would approach it:
+
+- Extract Audio Features
+- Aggregate and Calculate Averages
+- Visualize the Audio Aura

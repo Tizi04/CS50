@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <title>Trivia!</title>
+    <script>
+        // TODO: Add code to check answers to questions
+        document.addEventListener('DOMContentLoaded', function() {
+
+            let corrects = document.querySelectorAll('.correct');
+
+            for (let i = 0; i < corrects.length; i++){
+                corrects[i].addEventListener('click', function(){
+                    corrects[i].style.background = 'Green';
+                    corrects[i].parentElement.querySelector('.feedback').innerHTML = "¡CORRECT!";
+                });
+            }
+
+            let incorrects = document.querySelectorAll('.incorrect');
+
+            for (let i = 0; i < incorrects.length; i++){
+                incorrects[i].addEventListener('click', function(){
+                    incorrects[i].style.background = 'Red';
+                    incorrects[i].parentElement.querySelector('.feedback').innerHTML = "¡INCORRECT!";
+                });
+            }
+
+            document.querySelector('#check').addEventListener('click', function(){
+                let input = document.querySelector('input');
+
+                if(input.value.toLowerCase() === 'rusia'){
+                    input.style.background = 'Green';
+                    document.querySelector('.section .feedbacks').innerHTML = "¡CORRECT!";
+                } else {
+                    input.style.background = 'Red';
+                    document.querySelector('.section .feedbacks').innerHTML = "¡INCORRECT!";
+                }
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h1>Trivia!</h1>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>Part 1: Multiple Choice </h2>
+            <hr>
+            <h3>What is the capital of Argentina?</h3>
+            <button class="incorrect">Lima</button>
+            <button class="incorrect">Quito</button>
+            <button class="correct">Buenos aires</button>
+            <button class="incorrect">La plata</button>
+            <button class="incorrect">Rosario</button>
+            <p class='feedback'></p>
+        </div>
+
+        <div class="section">
+            <h2>Part 2: Free Response</h2>
+            <hr>
+            <h3>What is the biggest country in the world?</h3>
+            <input type="text">
+            <button id="check">Check answer</button>
+            <p class='feedbacks'></p>
+        </div>
+    </div>
+</body>
+</html>
